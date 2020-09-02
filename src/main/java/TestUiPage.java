@@ -18,6 +18,7 @@ public class TestUiPage {
 //        Scanner readFromClientTerminal = new Scanner(System.in);
 //        int webSite = readFromClientTerminal.nextInt();
 
+
         String webUrl = ConfigProperties.getProperty("webUrl");
 
         ChromeOptions options = new ChromeOptions();
