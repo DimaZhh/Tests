@@ -1,0 +1,48 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import pages.LinkedinLoginPage;
+import utils.ConfigProperties;
+
+public class BaseTest {
+
+    public WebDriver driver;
+    public LinkedinLoginPage linkedinLoginPage;
+
+    @Parameters("browserName")
+    @BeforeMethod
+    public void beforeMethod(String browserName) throws Exception {
+
+        switch (browserName) {
+            case "Chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
+                break;
+            case "Firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                driver.manage().window().maximize();
+                break;
+            case "IE":
+                WebDriverManager.iedriver().setup();
+                driver = new InternetExplorerDriver();
+                driver.manage().window().maximize();
+                break;
+        }
+
+        driver.get(ConfigProperties.getProperty("webUrl"));
+        linkedinLoginPage = new LinkedinLoginPage(driver);
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void afterMethod() {
+        driver.quit();
+    }
+
+}
