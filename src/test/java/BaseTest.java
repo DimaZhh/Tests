@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -11,6 +12,7 @@ import utils.ConfigProperties;
 
 public class BaseTest {
 
+    private static final int secondsToWait = 10;
     public WebDriver driver;
     public LinkedinLoginPage linkedinLoginPage;
 
@@ -37,7 +39,7 @@ public class BaseTest {
         }
 
         driver.get(ConfigProperties.getProperty("webUrl"));
-        linkedinLoginPage = new LinkedinLoginPage(driver);
+        linkedinLoginPage = new LinkedinLoginPage(driver, new WebDriverWait(driver, secondsToWait));
     }
 
     @AfterMethod(alwaysRun = true)
