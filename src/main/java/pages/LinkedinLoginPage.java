@@ -24,14 +24,14 @@ public class LinkedinLoginPage extends BasePage{
         this.driver = driver;
         this.wait = webDriverWait;
         PageFactory.initElements(driver, this);
-        assertElementIsVisible(enterButton, 5, "Login page is not loaded.");
+        assertElementIsVisible(enterButton, "Login page is not loaded.");
     }
 
     public LinkedinHomePage login(String userEmail, String userPassword) {
         userEmailField.sendKeys(userEmail);
         userPasswordField.sendKeys(userPassword);
         enterButton.click();
-        return new LinkedinHomePage(driver);
+        return new LinkedinHomePage(driver, wait);
     }
 
     public boolean isPageLoaded() throws IOException {
