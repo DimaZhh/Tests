@@ -27,11 +27,20 @@ public class LinkedinLoginPage extends BasePage{
         assertElementIsVisible(enterButton, "Login page is not loaded.");
     }
 
-    public LinkedinHomePage login(String userEmail, String userPassword) {
+    public <T> T login(String userEmail, String userPassword) {
         userEmailField.sendKeys(userEmail);
         userPasswordField.sendKeys(userPassword);
         enterButton.click();
-        return new LinkedinHomePage(driver, wait);
+
+        if (isUrlContains("/feed")){
+            return (T) new LinkedinHomePage(driver, wait);
+        }
+        if (isUrlContains("/checkpoint/lg/login-submit")) {
+            return (T) new LinkedinLoginSubmitPage(driver, wait);
+        }
+        else {
+            return (T) this;
+        }
     }
 
     public boolean isPageLoaded() throws IOException {
