@@ -6,6 +6,13 @@ import java.util.Properties;
 
 public class ConfigProperties {
 
+    /***
+     * Get property value from `config.properties` as String
+     *
+     * @param property
+     * @return
+     * @throws IOException
+     */
     public static String getProperty(String property) throws IOException {
         InputStream input =
                 ConfigProperties.class.getClassLoader().getResourceAsStream("config.properties");

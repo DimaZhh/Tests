@@ -7,6 +7,23 @@ import java.util.List;
 
 public class LinkedinSearchTest extends BaseTest{
 
+    /***
+     * Validate LinkedIn search functionality by providing text value `Automation QA` in search field
+     *
+     * Preconditions:
+     * - Open new browser;
+     * - navigate to linkedin.com;
+     * - login to LinkedInt account
+     *
+     * Scenario:
+     * - insert text value `Automation QA` to search filed and click enter
+     *
+     * Expected Result
+     * - get 10 records with searched criteria
+     * - check that each search result contains `Automation QA`
+     *
+     * @throws Exception
+     */
     @Test
     public void checkLinkedInSearchFunctionality() throws Exception {
         Assert.assertTrue(linkedinLoginPage.isPageLoaded(), "Login page is not loaded");

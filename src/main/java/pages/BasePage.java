@@ -36,6 +36,13 @@ public class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    /***
+     *
+     * Assert that UI WebElement is visible
+     *
+     * @param element - provided UI WebElement to be visible
+     * @param message - text message in case WebElement is not visible
+     */
     protected void assertElementIsVisible(WebElement element, String message) {
         try {
             waitUntilElementIsVisible(element);

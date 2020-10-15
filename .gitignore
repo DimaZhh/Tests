@@ -3,3 +3,5 @@
 target
 debug.log
 *.iml
+logs
+screenshots
