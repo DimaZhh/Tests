@@ -3,7 +3,7 @@ node {
 		git "https://github.com/DimaZhh/Tests"
 		}
 	stage ('Build'){
-    	dir("pipeline_selenium3") {
+    	dir("") {
 	   sh "mvn clean install"
        }
        	dir("/target/") {
