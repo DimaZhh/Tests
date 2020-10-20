@@ -3,7 +3,7 @@ node {
 		git "https://github.com/DimaZhh/Tests"
 		}
 	stage ('Build'){
-    	dir("/") {
+    	dir("C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins\workspace\pipeline_selenium3") {
 	   sh "mvn clean install"
        }
        	dir("/target/") {
