@@ -3,10 +3,10 @@ node {
 		git "https://github.com/DimaZhh/Tests"
 		}
 	stage ('Build'){
-    	dir("") {
+    	dir("proj") {
 	   sh "mvn clean install"
        }
-       	dir("/target/") {
+       	dir("proj/target/") {
 	   sh "java -jar testUi-1.0-SNAPSHOT.jar"
        }
 		}
