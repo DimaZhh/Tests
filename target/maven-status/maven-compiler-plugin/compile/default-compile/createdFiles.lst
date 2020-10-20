@@ -1,0 +1,6 @@
+pages\LinkedinLoginSubmitPage.class
+pages\BasePage.class
+pages\LinkedInSearchPage.class
+pages\LinkedinHomePage.class
+utils\ConfigProperties.class
+pages\LinkedinLoginPage.class
